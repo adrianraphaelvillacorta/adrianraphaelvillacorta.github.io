@@ -1,0 +1,93 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('font/Montserrat-Regular.ttf') format('truetype');
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom, #fdf3e6, #c5d6db);
+    margin: 0;
+    padding: 0;
+    color: #2c2c2c;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px 0;
+    background: linear-gradient(to right, #6d9a91, #9bc3af);
+    color: #fdf3e6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 2.5em;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .table-container {
+    margin: 20px auto;
+    overflow-x: auto;
+  }
+  
+  .content-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    background: #fef8f1;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .content-table thead tr {
+    background: linear-gradient(to right, #7dba94, #9fd2b4);
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .content-table th,
+  .content-table td {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .content-table tbody tr:nth-child(odd) {
+    background: #fef6e4; 
+  }
+  
+  .content-table tbody tr:nth-child(even) {
+    background: #f3eae1; 
+  }
+  
+  .content-table tbody tr:hover {
+    background: #c5d6db; 
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .content-table th {
+    position: sticky;
+    top: 0;
+  }
+  
+  .time {
+    font-weight: bold;
+    background: #b3cbb9; /* Muted green tone */
+    color: #2c2c2c;
+  }
+  
+  @media (max-width: 768px) {
+    .content-table th,
+    .content-table td {
+      font-size: 16px;
+    }
+  }
+  

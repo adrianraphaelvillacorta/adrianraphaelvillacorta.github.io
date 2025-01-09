@@ -6,68 +6,88 @@
     <title>Explore PH Tours</title>
     <link rel="icon" href="images/Company Logo.png" type="image/png" />
     <style>
-      /* Styles.css */
+      /* Reset CSS */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
       body {
-        font-family: "Inter", sans-serif;
-        background-color: #f9fafa;
-        color: #2d3436;
+        font-family: "Montserrat";
+        background-color: #f0f4f8;
+        color: #333;
+        line-height: 1.6;
         margin: 0;
         padding: 0;
       }
 
       @font-face {
-        font-family: "Inter";
-        src: url("./fonts/Inter-Regular.otf") format("opentype");
+        font-family: "Montserrat";
+        src: url("./fonts/Montserrat-Regular.ttf") format("truetype");
       }
 
-    header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    background: linear-gradient(135deg, #6fb3b8, #3c8d90);
-    color: white;
-    }
+      /* Header */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 40px;
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
-    header img {
-    max-width: 180px;
-    margin-right: 15px; 
-    }
+      header img {
+        max-width: 150px;
+      }
 
-    header h1 {
-    margin: 0;
-    font-size: 35px;
-    text-align: center;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
+      header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
 
-
+      /* Navigation */
       nav {
         display: flex;
         justify-content: center;
-        gap: 20px;
-        background-color: #3c8d90;
+        gap: 25px;
+        background-color: #ffffff;
         padding: 15px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 70px; /* Height of header */
+        z-index: 999;
       }
 
       nav a {
-        color: white;
+        color: #ff7e5f;
         text-decoration: none;
         font-weight: bold;
         font-size: 16px;
         padding: 10px 20px;
-        border-radius: 25px;
-        background-color: #6fb3b8;
-        transition: background-color 0.3s ease;
+        border-radius: 30px;
+        background-color: #ffe3d8;
+        transition: background-color 0.3s ease, transform 0.3s ease;
       }
 
       nav a:hover {
-        background-color: #285f63;
+        background-color: #ff7e5f;
+        color: #ffffff;
+        transform: translateY(-3px);
       }
 
+      /* Main Content */
       main {
         padding: 40px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
       .section {
@@ -76,48 +96,95 @@
       }
 
       .section h2 {
-        font-size: 28px;
-        color: #3c8d90;
-        margin-bottom: 20px;
+        font-size: 32px;
+        color: #ff7e5f;
+        margin-bottom: 25px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section h2::after {
+        content: "";
+        width: 50px;
+        height: 3px;
+        background-color: #feb47b;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       .card-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
+        gap: 25px;
       }
 
       .card {
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        width: 280px;
-        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        padding: 25px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .card:hover {
         transform: translateY(-10px);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .card b {
+        color: #ff7e5f;
+        font-size: 18px;
       }
 
       .card ul {
         list-style: none;
-        padding: 0;
-        margin: 0;
+        padding: 10px 0 0 0;
+        color: #555;
+        text-align: left;
+      }
+
+      .card ul li {
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .card ul li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #ff7e5f;
+      }
+
+      /* Call to Action */
+      .cta {
+        background-color: #ffefd5;
+        padding: 40px 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .cta h2 {
+        font-size: 28px;
+        color: #ff7e5f;
+        margin-bottom: 15px;
+      }
+
+      .cta p {
+        font-size: 18px;
+        margin-bottom: 25px;
         color: #555;
       }
 
-      .cta {
-        text-align: center;
-        margin: 40px 0;
-      }
-
       .button {
-        background-color: #ff6f61;
+        background-color: #ff7e5f;
         color: white;
-        padding: 15px 30px;
+        padding: 15px 35px;
         border: none;
         border-radius: 50px;
         font-size: 16px;
@@ -127,26 +194,28 @@
       }
 
       .button:hover {
-        background-color: #e65b50;
+        background-color: #feb47b;
         transform: scale(1.05);
       }
 
+      /* Contact Section */
       .contact {
         padding: 40px 20px;
-        background-color: #e0f7fa;
-        border-radius: 10px;
+        background-color: #ffe4e1;
+        border-radius: 15px;
         text-align: center;
       }
 
       .contact h3 {
-        margin-bottom: 20px;
-        color: #3c8d90;
+        margin-bottom: 25px;
+        color: #ff7e5f;
+        font-size: 24px;
       }
 
       .contact-details {
         display: flex;
         justify-content: center;
-        gap: 30px;
+        gap: 40px;
         flex-wrap: wrap;
       }
 
@@ -155,28 +224,36 @@
         font-size: 16px;
       }
 
+      .contact-details div b {
+        color: #ff7e5f;
+        font-size: 18px;
+      }
+
+      /* Footer */
       footer {
-        background-color: #3c8d90;
+        background-color: #ff7e5f;
         color: white;
         text-align: center;
         padding: 20px;
-        position: relative;
       }
 
       footer a {
-        color: #ffdd57;
+        color: #ffe3d8;
         text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.3s ease;
       }
 
       footer a:hover {
-        text-decoration: underline;
+        color: #ffffff;
       }
 
+      /* Up Arrow Button */
       #up-arrow {
         position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #ff6f61;
+        bottom: 30px;
+        right: 30px;
+        background-color: #ff7e5f;
         color: white;
         border: none;
         border-radius: 50%;
@@ -188,48 +265,65 @@
         cursor: pointer;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         font-size: 24px;
-        transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: 1000;
       }
 
       #up-arrow:hover {
-        background-color: #e65b50;
+        background-color: #feb47b;
+        transform: scale(1.1);
       }
 
-      #home {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        background-color: #6fb3b8;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 25px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
+      /* Smooth Scroll Behavior */
+      html {
+        scroll-behavior: smooth;
       }
 
-      #home:hover {
-        background-color: #285f63;
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        nav {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .contact-details {
+          flex-direction: column;
+          gap: 20px;
+        }
       }
     </style>
   </head>
   <body>
     <header>
-      <img
-        src="images/Company Logo.png"
-        alt="Villacorta Company Logo"
-      />
+      <img src="images/Company Logo.png" alt="Villacorta Company Logo" />
       <h1>Explore PH Tours</h1>
-      
-      
     </header>
+
     <nav>
-        <a href="#home">Home</a>
+      <a href="#home">Home</a>
       <a href="#services">Services</a>
       <a href="#promos">Promos</a>
+      <a href="#popular-packages">Popular Packages</a>
       <a href="#contact">Contact</a>
     </nav>
+
     <main>
+      <!-- Home Section -->
+      <section class="section" id="home">
+        <h2>Welcome to Explore PH Tours</h2>
+        <p>
+          Your gateway to unforgettable adventures across the Philippines.
+          Discover the beauty of our islands, mountains, and vibrant cities with
+          our expertly curated tours.
+        </p>
+      </section>
+
+      <!-- Services Section -->
       <section class="section" id="services">
         <h2>Services Offered</h2>
         <div class="card-container">
@@ -256,6 +350,8 @@
           </div>
         </div>
       </section>
+
+      <!-- Promos Section -->
       <section class="section" id="promos">
         <h2>Special Promotions</h2>
         <div class="card-container">
@@ -279,6 +375,8 @@
           </div>
         </div>
       </section>
+
+      <!-- Popular Packages Section -->
       <section class="section" id="popular-packages">
         <h2>Popular Packages</h2>
         <div class="card-container">
@@ -302,68 +400,74 @@
           </div>
         </div>
       </section>
-      
+
+      <!-- Call to Action Section -->
       <section class="cta">
         <h2>Book Your Next Adventure With Us Today</h2>
         <p>Limited slots available for promo packages.</p>
-        <button class="button">Book Now</button>
+        <button class="button" onclick="location.href='#contact'">
+          Book Now
+        </button>
       </section>
     </main>
-    <section class="contact" id="contact"">
-        <h3>Contact Us</h3>
-        <div class="contact-details">
-          <div>
-            <b>Manila:</b>
-            <p>(+63) 123-4567</p>
-          </div>
-          <div>
-            <b>Cebu:</b>
-            <p>(+63) 234-5678</p>
-          </div>
-          <div>
-            <b>Davao:</b>
-            <p>(+63) 345-6789</p>
-          </div>
-        </div>
-      </section>
-      <footer>
-        <p>&copy; 2024 Adrian Raphael Villacorta. All Rights Reserved.</p>
-        <p>
-          <a href="Facebook.com">Facebook</a> | <a href="Instagram.com">Instagram</a> | <a href="X.com">X</a>
-        </p>
-      </footer>
-      <button id="up-arrow" onclick="scrollToTop()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-          <path d="M12 2L3 13h6v9h6v-9h6L12 2z"></path>
-        </svg>
-      </button>
-      <script>
-    
-        const upArrow = document.getElementById("up-arrow");
-  
-        window.addEventListener("scroll", () => {
-          const isEndOfPage =
-            window.innerHeight + window.scrollY >= document.body.offsetHeight - 20;
-          const isScrolled = window.scrollY > 200;
-  
-          if (isEndOfPage || isScrolled) {
-            upArrow.style.display = "flex";
-            upArrow.style.opacity = 1;
-          } else {
-            upArrow.style.opacity = 0;
-            setTimeout(() => {
-              if (parseFloat(upArrow.style.opacity) === 0) {
-                upArrow.style.display = "none";
-              }
-            }, 300);
-          }
-        });
-  
-        function scrollToTop() {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-      </script>
-    </body>
-  </html>
 
-  
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <h3>Contact Us</h3>
+      <div class="contact-details">
+        <div>
+          <b>Manila:</b>
+          <p>(+63) 123-4567</p>
+        </div>
+        <div>
+          <b>Cebu:</b>
+          <p>(+63) 234-5678</p>
+        </div>
+        <div>
+          <b>Davao:</b>
+          <p>(+63) 345-6789</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Asher Faurillo. All Rights Reserved.</p>
+      <p>
+        <a href="https://facebook.com" target="_blank">Facebook</a> |
+        <a href="https://instagram.com" target="_blank">Instagram</a> |
+        <a href="https://x.com" target="_blank">X</a>
+      </p>
+    </footer>
+
+    <!-- Up Arrow Button -->
+    <button id="up-arrow" onclick="scrollToTop()">&#8679;</button>
+
+    <script>
+      const upArrow = document.getElementById("up-arrow");
+
+      window.addEventListener("scroll", () => {
+        const isEndOfPage =
+          window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 20;
+        const isScrolled = window.scrollY > 200;
+
+        if (isEndOfPage || isScrolled) {
+          upArrow.style.display = "flex";
+          upArrow.style.opacity = 1;
+        } else {
+          upArrow.style.opacity = 0;
+          setTimeout(() => {
+            if (parseFloat(upArrow.style.opacity) === 0) {
+              upArrow.style.display = "none";
+            }
+          }, 300);
+        }
+      });
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>
